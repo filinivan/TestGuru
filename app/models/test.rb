@@ -14,9 +14,10 @@ class Test < ApplicationRecord
   scope :medium_level, -> { where(level: 2..4) } 
   scope :hard_level, -> { where(level: 5..Float::INFINITY) } 
 
-  scope :test_names, ->(category_name) { Test.joins(:category).where('categories.name = ?', category_name).order('title DESC').pluck(:title) } 
+  scope :by_category, -> (category_name) { Test.joins(:category).where('categories.name = ?', category_name).order('title DESC') } 
 
-  private
-
+  def self.category_by_title(category_name)
+    Test.by_category(category_name).pluck(:title)
+  end
 
 end
