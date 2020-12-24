@@ -8,7 +8,7 @@ class Answer < ApplicationRecord
 private
 
 def limit_of_answers
-  errors.add(:answer) if Question.answers.count >= 4
+  errors.add(:answer) if question.answers.count >= 4
 end
 
 end
