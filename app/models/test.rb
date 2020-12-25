@@ -6,7 +6,7 @@ class Test < ApplicationRecord
   belongs_to :creator, class_name: 'User', foreign_key: 'user_id'
 
   validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-  validates :level, uniqueness: true
+  # validates :level, uniqueness: true
   # validate :validate_max_level
   validates :title, uniqueness: { scope: :level }
 
