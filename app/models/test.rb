@@ -5,7 +5,20 @@ class Test < ApplicationRecord
   has_many :questions
   belongs_to :creator, class_name: 'User', foreign_key: 'user_id'
 
-  def self.test_names(category_name)
-    Test.joins(:category).where('categories.name = ?', category_name).order('title DESC').pluck(:title)
+  validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  # validates :level, uniqueness: true
+  # validate :validate_max_level
+  validates :title, uniqueness: { scope: :level }
+
+  scope :level, ->(level) { where(level: level) } 
+  scope :simple_level, -> { where(level: 0..1) }
+  scope :medium_level, -> { where(level: 2..4) } 
+  scope :hard_level, -> { where(level: 5..Float::INFINITY) } 
+
+  scope :by_category, -> (category_name) { joins(:category).where('categories.name = ?', category_name) } 
+
+  def self.category_by_title(category_name)
+    by_category(category_name).order('title DESC').pluck(:title)
   end
+
 end
