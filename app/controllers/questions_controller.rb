@@ -4,8 +4,8 @@ class QuestionsController < ApplicationController
   before_action :find_question, only: %i[show destroy edit update]
 
   
-  def index 
-    @questions = Question.all
+  def test_questions
+    @questions = @test.questions
   end
 
   def test_question
@@ -13,12 +13,15 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    render file: 'public/new_question', layout: false
   end
 
   def create
     @question = @test.questions.new(question_params)
-    @question.save 
+    if @question.save 
+      render 'Success'
+    else 
+      render 'Error'
+    end
   end
 
   def destroy 
