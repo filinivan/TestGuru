@@ -1,8 +1,5 @@
 <h1>New question page</h1>
-  <%= form_for :question, url: '/questions' do |f| %>
-            
-            <p><%= f.label :test_id %>
-            <%= f.text_field :test_id %></p>
+  <%= form_for :question, url: test_questions_url do |f| %>
             
             <p><%= f.label :title %>
             <%= f.text_field :title %></p>
