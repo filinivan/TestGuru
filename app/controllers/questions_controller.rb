@@ -16,13 +16,12 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = @test.questions.new(params)
-    if @question.save 
-      render 'Success'
+    question = @test.questions.new(question_params)
+    if question.save 
+      render html: 'Success'
     else 
-      render 'Error'
+      render html: 'Error'
     end
-    byebug
   end
 
   def destroy 
@@ -30,6 +29,10 @@ class QuestionsController < ApplicationController
   end
 
   private
+
+  def question_params
+    params.require(:question).permit(:title)
+  end
 
   def find_test
     @test = Test.find(params[:test_id])
