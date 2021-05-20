@@ -1,8 +1,7 @@
 class QuestionsController < ApplicationController
-  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
-  before_action :find_test, only: %i[create new]
+  # rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
   before_action :find_question, only: %i[show destroy edit update]
-
+  before_action :find_test, only: %i[create index new edit]
   
   def test_questions
     @questions = @test.questions
@@ -12,7 +11,15 @@ class QuestionsController < ApplicationController
     @questions = @test.questions.find(params[:id])
   end
 
+  def edit
+  end
+
+  def index
+    @questions = @test.questions
+  end
+
   def new
+    @question = Question.new
   end
 
   def create
