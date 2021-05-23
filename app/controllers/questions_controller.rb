@@ -17,7 +17,7 @@ class QuestionsController < ApplicationController
   def create
     question = @test.questions.new(question_params)
     if question.save 
-      render html: 'Success'
+      redirect_to @test
     else 
       render html: 'Error'
     end
@@ -26,7 +26,7 @@ class QuestionsController < ApplicationController
   def destroy 
     @question.destroy
 
-    redirect_to @test
+    redirect_to @question.test
   end
 
   private
