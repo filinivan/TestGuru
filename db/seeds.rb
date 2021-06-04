@@ -30,6 +30,6 @@ answers = Answer.create!([
   { body: 'Ruby2', question_id: questions[0].id, correct: false }
 ])
 
-passed_tests = PassedTest.create!(user_id: users[0].id, test_id: tests[0].id, 
+passed_tests = TestPassage.create!(user_id: users[0].id, test_id: tests[0].id, 
   created_at: '2020-12-14 05:43:25.762660', updated_at: '2020-12-14 05:43:25.762660')
 
