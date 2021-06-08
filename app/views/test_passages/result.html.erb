@@ -1,0 +1,12 @@
+<h1> <%= @test_passage.test.title %> Test was complited! </h1>
+<br>
+<% if @test_passage.success? %>
+  <span class="text-green"><%= "Тест пройден успешно!" %></span>
+<% else %>
+  <span class="text-red"><%= "Тест не пройден!" %></span>
+<% end %>
+
+<br>
+<br>
+
+<%= link_to 'К списку тестов', tests_path %>

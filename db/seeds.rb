@@ -16,20 +16,23 @@ users = User.create!([
 ])
 
 tests = Test.create!([
-  { title: 'Sample test one', level: 1, category_id: categories[0].id, user_id: users[0].id },
-  { title: 'Sample test two', level: 2, category_id: categories[1].id, user_id: users[0].id }
+  { title: 'Ruby test', level: 1, category_id: categories[0].id, user_id: users[0].id },
+  { title: 'Web technology', level: 2, category_id: categories[1].id, user_id: users[0].id }
 ])
 
 questions = Question.create!([
-  { title: 'Какой вы изучаете язык программирования?', test_id: tests[0].id },
-  { title: 'Какой сегодня год?', test_id: tests[0].id }
+  { title: 'Who create Ruby lang?', test_id: tests[0].id },
+  { title: 'What language create Matz?', test_id: tests[0].id }
 ])
 
 answers = Answer.create!([
-  { body: 'Ruby', question_id: questions[0].id, correct: true },
-  { body: 'Ruby2', question_id: questions[0].id, correct: false }
+  { body: 'Homer Simpson', question_id: questions[0].id, correct: false },
+  { body: 'Matz', question_id: questions[0].id, correct: true },
+  { body: 'Ruby', question_id: questions[1].id, correct: true },
+  { body: 'PHP', question_id: questions[1].id, correct: false }
+
 ])
 
-passed_tests = TestPassage.create!(user_id: users[0].id, test_id: tests[0].id, 
-  created_at: '2020-12-14 05:43:25.762660', updated_at: '2020-12-14 05:43:25.762660')
+# passed_tests = TestPassage.create!(user_id: users[0].id, test_id: tests[0].id, 
+#   created_at: '2020-12-14 05:43:25.762660', updated_at: '2020-12-14 05:43:25.762660')
 
