@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   
+  get :login, to: 'sessions#new'
+  get :signup, to: 'users#new'
+  delete :logout, to: 'sessions#destroy'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  # root 'tests#index'
+  root 'tests#index'
+  resources :sessions, only: :create
 
   resources :tests do
     resources :questions, shallow: true, except: :index do
@@ -17,5 +21,7 @@ Rails.application.routes.draw do
       get :result
     end 
   end 
-  
+
+  resources :users, only: :create
+
 end
