@@ -11,8 +11,8 @@ categories = Category.create!([
 ])
 
 users = User.create!([
-  { username: 'Test_user', password: '124', level: 0 },
-  { username: 'Test_user2', password: '124', level: 2 }
+  { email: 'a', password: '123', level: 0 },
+  { email: 'Test_user2', password: '124', level: 2 }
 ])
 
 tests = Test.create!([

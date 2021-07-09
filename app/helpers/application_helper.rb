@@ -8,4 +8,10 @@ module ApplicationHelper
     link_to author, repo
   end
 
+  def flash_message
+    flash.map do |key, msg|
+      tag.p(msg, :class => "flash #{key}")
+    end.join.html_safe
+  end
+
 end
