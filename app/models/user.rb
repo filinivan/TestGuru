@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :test_passages
   has_many :tests, through: :test_passages
 
-  validates :email, presence: true
+  validates :email, presence: true, uniqueness: true
   validates :password, presence: true, if: Proc.new { |u| u.password_digest.blank? }
   validates :password, confirmation: true
 

@@ -1,13 +1,15 @@
 class ApplicationController < ActionController::Base
   
+  before_action :authenticate_user!
   helper_method :current_user,
                 :logged_in?
 
   private
   def authenticate_user!
    unless current_user
-    cookies[:controller] = params["controller"]
-    cookies[:action] = params["action"]
+    # cookies[:controller] = params["controller"]
+    # cookies[:action] = params["action"]
+    cookies[:requested_url] = request.fullpath
     redirect_to login_path, alert: 'Please Login!'
    end
 
