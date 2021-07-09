@@ -23,6 +23,5 @@ Rails.application.routes.draw do
   end 
 
   resources :users, only: :create
-  get :signup, to: 'users#new'
 
 end
