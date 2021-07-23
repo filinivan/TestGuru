@@ -25,4 +25,12 @@ class User < ApplicationRecord
     test_passages.order(id: :desc).find_by(test_id: test.id)
   end
 
+  def admin?
+    if self.type == 'Admin'
+      true
+    else
+      false
+    end
+  end
+
 end

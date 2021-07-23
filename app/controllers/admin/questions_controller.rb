@@ -1,4 +1,4 @@
-class Admin::QuestionsController < ApplicationController
+class Admin::QuestionsController < Admin::BaseController
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
   before_action :find_question, only: %i[show destroy edit update]
@@ -18,7 +18,7 @@ class Admin::QuestionsController < ApplicationController
   def create
     question = @test.questions.new(question_params)
     if question.save 
-      redirect_to [:admin, @test]
+      redirect_to admin_test_path(@test)
     else 
       render html: 'Error'
     end
