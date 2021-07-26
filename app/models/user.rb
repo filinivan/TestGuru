@@ -26,11 +26,7 @@ class User < ApplicationRecord
   end
 
   def admin?
-    if self.type == 'Admin'
-      true
-    else
-      false
-    end
+    type == 'Admin'
   end
 
 end

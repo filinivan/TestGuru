@@ -27,7 +27,8 @@ class Admin::QuestionsController < Admin::BaseController
   def destroy 
     @question.destroy
 
-    redirect_to [:admin, @question.test]
+    redirect_to admin_question_path(@question.test)
+    # redirect_to [:admin, @question.test]
   end
 
   private
