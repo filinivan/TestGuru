@@ -8,7 +8,7 @@ class TestPassage < ApplicationRecord
 
   SUCCESS_PERCENT_NUMBER = 85
 
-  def complited?
+  def completed?
     current_question.nil?
   end
 
