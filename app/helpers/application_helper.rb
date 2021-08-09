@@ -10,7 +10,7 @@ module ApplicationHelper
 
   def flash_message
     flash.map do |key, msg|
-      tag.p(msg, :class => "flash #{key}")
+      tag.p(msg, :class => "alert alert-#{key}")
     end.join.html_safe
   end
 
