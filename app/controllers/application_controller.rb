@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
                 :logged_in?
 
   def after_sign_in_path_for(resource)
-    flash[:notice] = "Hello #{current_user.first_name} !"
+    flash[:secondary] = "Hello #{current_user.first_name} !"
     if current_user.admin? 
       admin_tests_path
     else
