@@ -73,4 +73,7 @@ en:
   test_passages:
     result:
       header: "Test %{title} was complited!"
+    gist:
+      success: "Gist was saved."
+      failure: "Error! Gist not saved"
 
