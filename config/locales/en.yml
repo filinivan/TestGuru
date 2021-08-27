@@ -54,6 +54,10 @@ en:
       header: 
         one: "%{count} error detected"
         other: "%{count} errors detected"
+    nav:
+      gists: "Gists"
+      adminka: "Admin"
+      logout: "Logout"
 
   tests_mailer:
     completed_test:
