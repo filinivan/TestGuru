@@ -28,7 +28,7 @@ class TestPassagesController < ApplicationController
     link_to_gist = result[:html_url]
 
     flash_options = if service.success?
-      @test_passage.user.gists.create(question: @test_passage.current_question, gist_url: link_to_gist)
+      current_user.gists.create(question: @test_passage.current_question, gist_url: link_to_gist)
       { notice: "#{t('.success')} #{link_to_gist}" }
     else
       { alert: t('.failure') }
