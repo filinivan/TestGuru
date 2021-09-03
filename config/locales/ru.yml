@@ -40,6 +40,10 @@ ru:
         other: "Обнаружено %{count} ошибки"
         few: "Обнаружено %{count} ошибки"
         many: "Обнаружено %{count} ошибки"
+    nav:
+      gists: "Гистульки"
+      adminka: "Админка"
+      logout: "Выход"
 
   tests_mailer:
     completed_test:
@@ -60,8 +64,15 @@ ru:
         category_id: "Категория"
     select:
       prompt: "Укажите категорию"
+    # link_to:
+    #   gists: "Список Gists"
+    #   adminka: "Вход в админку"
 
   test_passages:
     result:
       header: "Тест %{title} успешно завершён!"
+    gist:
+      success: "Gist успешно сохранён."
+      failure: "Во время сохранения Gist произошла ошибка."
+
     
