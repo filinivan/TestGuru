@@ -27,6 +27,7 @@ gem 'devise', '~> 4.0'
 gem 'faraday'
 #GitHub client
 gem "octokit", "~> 4.0"
+gem 'octicons_helper'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

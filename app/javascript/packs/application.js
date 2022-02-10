@@ -7,11 +7,14 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+
+// require("utilities/sorting.js")
 // import 'bootstrap/dist/js/bootstrap'
 // import 'bootstrap/dist/css/bootstrap'
 // require("stylesheets/application.scss")
 import "bootstrap"
 import "../stylesheets/application"
+import "utilities/sorting"
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
