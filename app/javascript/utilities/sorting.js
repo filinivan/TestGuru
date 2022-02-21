@@ -3,6 +3,7 @@ document.addEventListener('turbolinks:load', function(){
   if (control) {control.addEventListener('click', sortRowByTitle)}
 })
 
+
 function sortRowByTitle() {
   var table = document.querySelector('table')
 
@@ -15,27 +16,29 @@ function sortRowByTitle() {
     sortedRows.push(rows[i])
   }
 
-  var arrowUp = this.querySelector('.octicon-arrow-up')
+  // var arrowUp = this.querySelector('.octicon-arrow-up')
 
-  // if() {
-  //   sortedRows.sort(compareRowsAsc)
-  // } else {
-  //   sortedRows.sort(compareRowsDesc)
-  // }
-  console.log(arrowUp)
+  if(this.querySelector('.octicon-arrow-up').classList.contains('hide')) {
+    sortedRows.sort(compareRowsAsc)
+    this.querySelector('.octicon-arrow-up').classList.remove('hide')
+    this.querySelector('.octicon-arrow-down').classList.add('hide')
+  } else {
+    sortedRows.sort(compareRowsDesc)
+    this.querySelector('.octicon-arrow-up').classList.add('hide')
+    this.querySelector('.octicon-arrow-down').classList.remove('hide')
+  }
   
- 
-
   var sortedTable = document.createElement('table')
 
   sortedTable.classList.add('table')
-  sortedTable.appendChild(rows[0])
+  sortedTable.classList.add('table-striped')
+  sortedTable.appendChild(rows[0]) // Добавление строки с заголовком
 
   for (var i = 0; i < sortedRows.length; i++) {
     sortedTable.appendChild(sortedRows[i])
   }
 
-  table.parentNode.replaceChild(sortedTable, table)
+  table.parentNode.replaceChild(sortedTable, table) //Заменяем таблицу на отсортированную. Физическая вставка
 }
 
 function compareRowsAsc(row1, row2) {
