@@ -3,7 +3,6 @@ document.addEventListener('turbolinks:load', function(){
   if (control) {control.addEventListener('click', sortRowByTitle)}
 })
 
-
 function sortRowByTitle() {
   var table = document.querySelector('table')
 
@@ -15,8 +14,6 @@ function sortRowByTitle() {
   for (var i = 1; i < rows.length; i++) {
     sortedRows.push(rows[i])
   }
-
-  //var arrowUp = this.querySelector('.octicon-arrow-up')
 
   if(this.querySelector('.octicon-arrow-up').classList.contains('hide')) {
     sortedRows.sort(compareRowsAsc)
