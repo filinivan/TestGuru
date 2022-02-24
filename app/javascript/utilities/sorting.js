@@ -26,15 +26,17 @@ function sortRowByTitle() {
   }
   
   var sortedTable = document.createElement('table')
+  var sortedTableBody = document.createElement("tbody");
 
   sortedTable.classList.add('table')
   sortedTable.classList.add('table-striped')
-  sortedTable.appendChild(rows[0]) // Добавление строки с заголовком
+  sortedTableBody.appendChild(rows[0]) // Добавление строки с заголовком
 
   for (var i = 0; i < sortedRows.length; i++) {
-    sortedTable.appendChild(sortedRows[i])
+    sortedTableBody.appendChild(sortedRows[i])
   }
-
+  
+  sortedTable.appendChild(sortedTableBody)
   table.parentNode.replaceChild(sortedTable, table) //Заменяем таблицу на отсортированную. Физическая вставка
 }
 
