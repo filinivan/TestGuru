@@ -12,16 +12,15 @@ function checkPasswordConfirmation() {
     confirmation.classList.remove('bg-success')
     password.classList.remove('bg-danger')
     confirmation.classList.remove('bg-danger')
+    return
   }
   
-  else if (password.value != confirmation.value){
+  if (password.value != confirmation.value){
     password.classList.remove('bg-success')
     confirmation.classList.remove('bg-success')
     password.classList.add('bg-danger')
     confirmation.classList.add('bg-danger')
-  } 
-  
-  else if (password.value == confirmation.value) {
+  } else {
     password.classList.add('bg-success')
     confirmation.classList.add('bg-success')
     password.classList.remove('bg-danger')
