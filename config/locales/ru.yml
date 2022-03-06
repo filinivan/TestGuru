@@ -29,6 +29,8 @@ ru:
         edit: "Редактировать"
         show: "Показать"
         delete: "Удалить"
+      form_inline:
+        submit: "Ок"
 
   shared: 
     header:
