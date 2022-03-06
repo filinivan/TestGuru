@@ -24,7 +24,7 @@ function sortRowByTitle() {
     this.querySelector('.octicon-arrow-up').classList.add('hide')
     this.querySelector('.octicon-arrow-down').classList.remove('hide')
   }
-  
+ 
   var sortedTable = document.createElement('table')
   var sortedTableBody = document.createElement("tbody");
 
