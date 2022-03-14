@@ -1,5 +1,5 @@
 document.addEventListener('turbolinks:load', function(){
-  $('.form-inline-link').on('click', formInlineClickHandler)
+$('.form-inline-link').on('click', formInlineClickHandler) 
 
   var errors = document.querySelector('.resource-errors')
 
@@ -18,16 +18,19 @@ function formInlineClickHandler(event) {
 
 function formInlineHandler(testId) {
   var link = document.querySelector('.form-inline-link[data-test-id="'+ testId +'"]')
+  
+  if (link){
 
-  var $testTitle = $('.test-title[data-test-id="'+ testId +'"]')
-  var $formInline = $('.form-inline[data-test-id="'+ testId +'"]')
+    var $testTitle = $('.test-title[data-test-id="'+ testId +'"]')
+    var $formInline = $('.form-inline[data-test-id="'+ testId +'"]')
 
-  $formInline.toggle()
-  $testTitle.toggle()
+    $formInline.toggle()
+    $testTitle.toggle()
 
-  if ($formInline.is(':visible')) {
-    link.textContent = 'Cancel'
-  } else {
-    link.textContent = 'Edit'
+    if ($formInline.is(':visible')) {
+      link.textContent = 'Cancel'
+    } else {
+      link.textContent = 'Edit'
+    }
   }
 }
