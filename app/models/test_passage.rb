@@ -27,8 +27,8 @@ class TestPassage < ApplicationRecord
     self.correct_question / self.test.questions.count * 100
   end
 
-  def progress_percent
-    self.current_question.id / self.test.questions.count * 100
+  def percent
+    (self.current_question.id.to_f / self.test.questions.count) * 100
   end
 
   private
