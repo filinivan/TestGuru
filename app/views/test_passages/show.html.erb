@@ -6,8 +6,8 @@
 <br>
 <br>
 <div id="myProgress">
-  <%= content_tag :div,"", id: "myBar", data: { percent: @test_passage.progress_percent} %>
-  <div id="myBar" data-percent=<%= @test_passage.progress_percent %>></div>
+  <%= content_tag :div,"", id: "myBar", data: { percent: @test_passage.percent} %>
+
 
 </div>
   <span> Вопрос <%= @test_passage.current_question.id %> из <%= @test_passage.test.questions.count %></span>
