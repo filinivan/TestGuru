@@ -1,10 +1,9 @@
 class Admin::TestsController < Admin::BaseController
     
     before_action :set_tests, only: %i[index update_inline]
-    before_action :find_test, only: %i[edit destroy show start update update_inline]
+    before_action :find_test, only: %i[edit destroy show start update update_inline ]
 
     def index
-      @tests = Test.all
     end
 
     def show
@@ -47,7 +46,8 @@ class Admin::TestsController < Admin::BaseController
       else 
         render :index
       end  
-    end
+    end 
+
 
     private
 

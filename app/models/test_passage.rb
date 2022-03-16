@@ -27,6 +27,10 @@ class TestPassage < ApplicationRecord
     self.correct_question / self.test.questions.count * 100
   end
 
+  def percent
+    (self.current_question.id.to_f / self.test.questions.count) * 100
+  end
+
   private
 
   def before_validation_set_first_question
