@@ -30,7 +30,8 @@ ru:
         show: "Показать"
         delete: "Удалить"
       form_inline:
-        submit: "Ок"
+        submit: "Ok"
+
 
   shared: 
     header:
