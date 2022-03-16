@@ -3,7 +3,6 @@ document.addEventListener('turbolinks:load', function(){
   
   if (elem) {
     var i =  elem.dataset.percent
-    var width = i
     elem.style.width = i + '%'
   }
 })
