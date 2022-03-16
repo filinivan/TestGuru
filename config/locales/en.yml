@@ -46,6 +46,8 @@ en:
       index:
         header: "Tricky tests"
         new_test: "Create new"
+      form_inline:
+        submit: "Ок"
 
   shared: 
     header:
