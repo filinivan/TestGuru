@@ -6,12 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 categories = Category.create!([
-  { name: 'ruby' }, 
+  { name: 'ruby' },
   { name: 'web' }
 ])
 
 users = User.create!([
-  { email: 'a@a', password: '123123', level: 0, type: 'Admin', first_name: 'Ivan', last_name: 'Petrov' },
+  { email: 'filin-i@yandex.ru', password: '123123', level: 0, type: 'Admin', first_name: 'Ivan', last_name: 'Petrov' },
   { email: 'b@b', password: '123123', level: 2, first_name: 'Ivan', last_name: 'Petrov' }
 ])
 
@@ -33,6 +33,5 @@ answers = Answer.create!([
 
 ])
 
-# passed_tests = TestPassage.create!(user_id: users[0].id, test_id: tests[0].id, 
+# passed_tests = TestPassage.create!(user_id: users[0].id, test_id: tests[0].id,
 #   created_at: '2020-12-14 05:43:25.762660', updated_at: '2020-12-14 05:43:25.762660')
-
