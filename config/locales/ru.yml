@@ -31,7 +31,7 @@ ru:
         delete: "Удалить"
       form_inline:
         submit: "Ok"
-      
+
 
   shared: 
     header:
