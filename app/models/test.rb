@@ -1,8 +1,8 @@
 class Test < ApplicationRecord
   belongs_to :category
-  has_many :test_passages
+  has_many :test_passages, dependent: :delete_all
   has_many :users, through: :test_passages
-  has_many :questions
+  has_many :questions, dependent: :delete_all
   belongs_to :creator, class_name: 'User', foreign_key: 'user_id'
 
   validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
