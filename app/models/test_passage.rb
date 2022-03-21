@@ -1,7 +1,7 @@
 class TestPassage < ApplicationRecord
   belongs_to :user
   belongs_to :test
-  belongs_to :current_question, class_name: 'Question', optional: true 
+  belongs_to :current_question, class_name: 'Question', optional: true
 
   before_validation :before_validation_set_first_question, on: :create
   before_update :before_update_set_next_question
@@ -28,10 +28,20 @@ class TestPassage < ApplicationRecord
   end
 
   def percent
-    (self.current_question.id.to_f / self.test.questions.count) * 100
+    self.current_question_number.to_f / self.test.questions.count * 100
+    # found = array.detect {|e| e == current_question.id.to_f} #=> 3
+    # (self.current_question.id.to_f / self.test.questions.count) * 100
+    # self.test.questions.find_index(self.current_question.id) / self.test.questions.count.to_f) * 100
   end
 
   private
+
+  def current_question_number
+    collection = self.test.questions
+    array = []
+    collection.each {|item| array << item.id }
+    collection.find_index(self.current_question_id)
+  end
 
   def before_validation_set_first_question
     self.current_question = test.questions.first if test.present?
