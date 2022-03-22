@@ -29,19 +29,16 @@ class TestPassage < ApplicationRecord
 
   def percent
     self.current_question_number.to_f / self.test.questions.count * 100
-    # found = array.detect {|e| e == current_question.id.to_f} #=> 3
-    # (self.current_question.id.to_f / self.test.questions.count) * 100
-    # self.test.questions.find_index(self.current_question.id) / self.test.questions.count.to_f) * 100
   end
-
-  private
 
   def current_question_number
     collection = self.test.questions
     array = []
     collection.each {|item| array << item.id }
-    collection.find_index(self.current_question_id)
+    array.find_index(self.current_question_id)
   end
+
+  private
 
   def before_validation_set_first_question
     self.current_question = test.questions.first if test.present?
