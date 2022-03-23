@@ -7,7 +7,7 @@ ru:
       title: "Название"
       level: "Уровень"
       quantity_of_questions: "Число вопросов"
-      actions: "Действия"      
+      actions: "Действия"
     test:
       start: "Старт"
       questions: "Вопросов "
@@ -20,6 +20,7 @@ ru:
         welcome: "Привет "
         header: "Доступные тесты"
         title: "Название"
+        active: "Отображать"
         level: "Уровень"
         quantity_of_questions: "Число вопросов"
         actions: "Действия"
@@ -33,12 +34,12 @@ ru:
         submit: "Ok"
 
 
-  shared: 
+  shared:
     header:
       welcome: "Привет "
       logout: "Выйти"
     errors:
-      header: 
+      header:
         one: "%{count} ошибка обнаружена"
         other: "Обнаружено %{count} ошибки"
         few: "Обнаружено %{count} ошибки"
@@ -77,5 +78,3 @@ ru:
     gist:
       success: "Gist успешно сохранён."
       failure: "Во время сохранения Gist произошла ошибка."
-
-    
