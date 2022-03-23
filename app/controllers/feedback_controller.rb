@@ -6,7 +6,7 @@ class FeedbackController < ApplicationController
     subject = current_user.email
     text = params[:text]
     FeedbackMailer.send_feedback(subject, text).deliver_now
-    redirect_to feedback_path, notice: "Success!"
+    redirect_to new_feedback_path, notice: "Success!"
   end
 
   private
