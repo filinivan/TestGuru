@@ -32,10 +32,7 @@ class TestPassage < ApplicationRecord
   end
 
   def current_question_number
-    collection = self.test.questions
-    array = []
-    collection.each {|item| array << item.id }
-    array.find_index(self.current_question_id)
+    self.test.questions.index(current_question) + 1
   end
 
   private
