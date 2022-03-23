@@ -1,7 +1,11 @@
 
         <tr>
+          <% if test.questions.length > 0 %>
             <td><%= test.title %></td>
             <td><%= test_level(test) %></td>
             <td class="questions-quantity"><%= test.questions.length %></td>
-            <td><%= button_to t('.start'), start_test_path(test), form_class: "start-test" %></td>
+            <td>
+                <%= button_to t('.start'), start_test_path(test), form_class: "start-test" %>
+            </td>
+          <% end %>
         </tr>

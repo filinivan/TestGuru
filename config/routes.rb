@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, path: :gurus, path_names: {sign_in: :login, sign_out: :logout}
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'tests#index'
-  get 'feedback', to: 'feedback#new'
-  post 'feedback', to: 'feedback#create'
+  resources :feedback, only: [:new, :create]
 
   resources :tests, only: :index do
     resources :questions, shallow: true, except: :index do
@@ -31,8 +30,6 @@ Rails.application.routes.draw do
       end
     end
     resources :gists, only: :index
-    # resources :questions
-    # resources :answers
   end
 
 end
