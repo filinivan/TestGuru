@@ -1,6 +1,6 @@
 <h1 class="text-center mt-3"><%= t('.header') %></h1>
 <p>
-<%= link_to t('.new_test'), new_admin_test_path %>
+<%= link_to t('.new_test'), new_admin_test_path, class: "btn btn-warning" %>
 </p>
 
 <%= render 'shared/errors', resource: @test %>
