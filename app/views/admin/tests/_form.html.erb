@@ -14,7 +14,7 @@
 
   <p>
     <%= form.label :active, class: "form-label" %>
-    <%= form.select(:active, options_for_select([['Yes', true], ['No', false]]), {}, { class: 'form-select' })%>
+    <%= form.select(:active, options_for_select([['Yes', true], ['No', false]], selected: @test.active), {}, { class: 'form-select' })%>
   </p>
 
   <p>
