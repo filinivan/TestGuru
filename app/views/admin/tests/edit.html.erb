@@ -1,5 +1,13 @@
-<h1>Edit test</h1>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h1>Edit test</h1>
 
-<%= render 'form' %>
+      <%= render 'form' %>
 
-<%= link_to 'Back', admin_test_path(@test) %>
+      <h3> <%= link_to 'Edit questions', admin_test_questions_path(@test) %> </h3>
+
+      <%= link_to 'Back', admin_tests_path,class: "btn btn-info" %>
+    </div>
+  </div>
+</div>

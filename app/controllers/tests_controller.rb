@@ -1,10 +1,8 @@
 class TestsController < ApplicationController
-    
-    before_action :authenticate_user!
     before_action :find_test, only: %i[start]
 
     def index
-      @tests = Test.all
+      @tests = Test.active_test
     end
 
     def start
@@ -15,6 +13,6 @@ class TestsController < ApplicationController
     private
 
     def find_test
-      @test = Test.find(params[:id])    
+      @test = Test.find(params[:id])
     end
 end

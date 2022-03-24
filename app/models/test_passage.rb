@@ -1,7 +1,7 @@
 class TestPassage < ApplicationRecord
   belongs_to :user
   belongs_to :test
-  belongs_to :current_question, class_name: 'Question', optional: true 
+  belongs_to :current_question, class_name: 'Question', optional: true
 
   before_validation :before_validation_set_first_question, on: :create
   before_update :before_update_set_next_question
@@ -24,11 +24,15 @@ class TestPassage < ApplicationRecord
   end
 
   def success_percent
-    self.correct_question / self.test.questions.count * 100
+    self.correct_question.to_f / self.test.questions.count * 100.0
   end
 
   def percent
-    (self.current_question.id.to_f / self.test.questions.count) * 100
+    self.current_question_number.to_f / self.test.questions.count * 100
+  end
+
+  def current_question_number
+    self.test.questions.index(current_question) + 1
   end
 
   private
@@ -42,6 +46,7 @@ class TestPassage < ApplicationRecord
   end
 
   def correct_answer?(answer_ids)
+    return false if answer_ids.nil?
     correct_answers.ids.sort == answer_ids.map(&:to_i).sort
   end
 

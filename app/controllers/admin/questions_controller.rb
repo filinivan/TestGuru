@@ -17,14 +17,22 @@ class Admin::QuestionsController < Admin::BaseController
 
   def create
     question = @test.questions.new(question_params)
-    if question.save 
+    if question.save
       redirect_to admin_test_path(@test)
-    else 
-      render html: 'Error'
+    else
+      render :new
     end
   end
 
-  def destroy 
+  def update
+    if @question.update(question_params)
+      redirect_to admin_tests_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
     @question.destroy
 
     redirect_to admin_question_path(@question.test)

@@ -1,6 +1,6 @@
 <h1 class="text-center mt-3"><%= t('.header') %></h1>
 <p>
-<%= link_to t('.new_test'), new_admin_test_path %>
+<%= link_to t('.new_test'), new_admin_test_path, class: "btn btn-warning" %>
 </p>
 
 <%= render 'shared/errors', resource: @test %>
@@ -14,9 +14,10 @@
         </th>
         <th><%=t('.level')%></th>
         <th><%=t('.quantity_of_questions')%></th>
-        <th colspan="4"><%=t('.actions')%></th>
+        <th><%=t('.active')%></th>
+        <th colspan="3"><%=t('.actions')%></th>
     </tr>
 
     <%= render @tests %>
-    
+
 </table>

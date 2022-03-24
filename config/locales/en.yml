@@ -45,15 +45,16 @@ en:
         success: "Test was created"
       index:
         header: "Tricky tests"
+        active: "Show"
         new_test: "Create new"
       form_inline:
         submit: "Ок"
 
-  shared: 
+  shared:
     header:
       logout: "Quit"
     errors:
-      header: 
+      header:
         one: "%{count} error detected"
         other: "%{count} errors detected"
     nav:
@@ -82,4 +83,3 @@ en:
     gist:
       success: "Gist was saved."
       failure: "Error! Gist not saved"
-
