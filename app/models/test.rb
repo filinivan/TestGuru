@@ -12,6 +12,7 @@ class Test < ApplicationRecord
   scope :simple_level, -> { where(level: 0..1) }
   scope :medium_level, -> { where(level: 2..4) }
   scope :hard_level, -> { where(level: 5..Float::INFINITY) }
+  scope :active_test, -> { where(active: true).all }
 
   scope :by_category, -> (category_name) { joins(:category).where('categories.name = ?', category_name) }
 
