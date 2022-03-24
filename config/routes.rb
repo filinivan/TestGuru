@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  
+
   devise_for :users, path: :gurus, path_names: {sign_in: :login, sign_out: :logout}
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'tests#index'
+  resources :feedback, only: [:new, :create]
 
   resources :tests, only: :index do
     resources :questions, shallow: true, except: :index do
@@ -11,14 +12,14 @@ Rails.application.routes.draw do
     member do
       post :start
     end
-  end  
-  
+  end
+
   resources :test_passages, only: %i[ show update] do
     member do
       get :result
       post :gist
-    end 
-  end 
+    end
+  end
 
   namespace :admin do
     resources :tests do
@@ -29,8 +30,6 @@ Rails.application.routes.draw do
       end
     end
     resources :gists, only: :index
-    # resources :questions
-    # resources :answers
   end
 
 end

@@ -7,10 +7,8 @@
 <br>
 <div id="myProgress">
   <%= content_tag :div,"", id: "myBar", data: { percent: @test_passage.percent} %>
-
-
 </div>
-  <span> Вопрос <%= @test_passage.current_question.id %> из <%= @test_passage.test.questions.count %></span>
+  <span> Вопрос <%= @test_passage.current_question_number %> из <%= @test_passage.test.questions.count %></span>
 <br>
 <br>
 <%= form_with url: test_passage_path(@test_passage), local: true, method: :put do |form|%>
@@ -23,4 +21,3 @@
   <p><%= link_to 'Gist question', gist_test_passage_path(@test_passage), method: :post %></p>
   <p><%= form.submit %></p>
 <% end %>
-
