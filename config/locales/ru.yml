@@ -32,6 +32,10 @@ ru:
         delete: "Удалить"
       form_inline:
         submit: "Ok"
+    badges:
+      index:
+        header: "Бейджы"    
+
 
 
   shared:
@@ -48,6 +52,7 @@ ru:
       gists: "Гистульки"
       adminka: "Админка"
       logout: "Выход"
+      badges: "Бейджи"
 
   tests_mailer:
     completed_test:
