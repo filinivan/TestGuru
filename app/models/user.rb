@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_many :test_passages
   has_many :tests, through: :test_passages
   has_many :gists
-  has_many :badges
+  has_many :rewards
 
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, if: Proc.new { |u| u.encrypted_password.blank? }

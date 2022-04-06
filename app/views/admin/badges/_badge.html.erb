@@ -1,0 +1,13 @@
+<tr>
+  <td class="align-middle"><%= badge.title %></td>
+  <td class="align-middle"><%= image_pack_tag(badge.img, size: "32") %></td>
+  <td class="align-middle"> <p><%= badge.rule %></p></td>
+  <td class="align-middle">
+    <%= link_to t('.edit'),
+    edit_admin_badge_path(badge),
+    data: { badge_id: badge.id } %>
+  </td>
+  <td class="align-middle"><%= link_to t('.delete'), admin_badge_path(badge),
+    method: :delete,
+    data: { confirm: "Are you sure?" } %></td>
+</tr>

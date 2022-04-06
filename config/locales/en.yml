@@ -49,6 +49,8 @@ en:
         new_test: "Create new"
       form_inline:
         submit: "Ок"
+      badges:
+        header: "Badges"
 
   shared:
     header:
@@ -61,6 +63,7 @@ en:
       gists: "Gists"
       adminka: "Admin"
       logout: "Logout"
+      badges: "Badges"
 
   tests_mailer:
     completed_test:
