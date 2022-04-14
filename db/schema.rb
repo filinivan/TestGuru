@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_31_193052) do
+ActiveRecord::Schema.define(version: 2022_04_14_134726) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2022_03_31_193052) do
     t.string "title", null: false
     t.string "img"
     t.string "rule"
+    t.string "value"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -77,6 +78,7 @@ ActiveRecord::Schema.define(version: 2022_03_31_193052) do
     t.integer "correct_question", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "passed", default: false
     t.index ["current_question_id"], name: "index_test_passages_on_current_question_id"
     t.index ["test_id"], name: "index_test_passages_on_test_id"
     t.index ["user_id"], name: "index_test_passages_on_user_id"

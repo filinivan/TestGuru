@@ -13,10 +13,13 @@
 
   <p>
     <%= form.label :rule, class: "form-label" %>
-    <%= form.select(:rule, options_for_select([['First time', 'badges/blue.jpg'], ['Red', 'badges/red.jpg'],
+    <%= form.select(:rule, options_for_select([['First time', 'rule_first_time'], ['All in category', 'rule_all_in_category'],
         ['Black', 'badges/black.jpg']]), {}, { class: 'form-select' })%>
-    <%= form.label :rule, class: "form-label" %>
-    <%= form.text_field :rule, class: "form-control" %>
+  </p>
+
+  <p>
+    <%= form.label :value, class: "form-label" %>
+    <%= form.text_field :value, class: "form-control"%>
   </p>
 
   <p> <%= form.submit("Сохранить", class: "btn btn-primary") %> </p>
