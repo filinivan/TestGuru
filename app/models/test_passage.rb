@@ -5,6 +5,7 @@ class TestPassage < ApplicationRecord
 
   before_validation :before_validation_set_first_question, on: :create
   before_update :before_update_set_next_question
+  before_update :before_update_test_passed
 
   scope :passed_tests_correct, ->(user) {
     user.test_passages.where(passed: true)
@@ -60,6 +61,10 @@ class TestPassage < ApplicationRecord
 
   def next_question
     test.questions.order(:id).where('id > ?', current_question.id).first
+  end
+
+  def before_update_test_passed
+    self.passed = true if success? && completed?
   end
 
 end
