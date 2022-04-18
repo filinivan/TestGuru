@@ -16,8 +16,8 @@ class BadgeService
 
   private
 
-  def rule_first_time
-    # TestPassage.where(["user_id = ? and test_id = ?", @user.id, @test.id]).length > 0
+  def rule_first_time(*args)
+    TestPassage.where(["user_id = ? and test_id = ?", @user.id, @test.id]).length > 0
   end
 
 
@@ -35,6 +35,7 @@ class BadgeService
   end
 
   def give_reward!(badge)
+    Reward.
     @user.rewards << badge
   end
 end
