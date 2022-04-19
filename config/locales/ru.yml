@@ -1,5 +1,9 @@
 ru:
 
+  badges:
+    index:
+      header: "Ваши бейджи"
+
   tests:
     index:
       welcome: "Привет "
@@ -34,7 +38,7 @@ ru:
         submit: "Ok"
     badges:
       index:
-        header: "Бейджы"    
+        header: "Настройка бейджей"
 
 
 
@@ -49,6 +53,7 @@ ru:
         few: "Обнаружено %{count} ошибки"
         many: "Обнаружено %{count} ошибки"
     nav:
+      your_badges: "Награды"
       gists: "Гистульки"
       adminka: "Админка"
       logout: "Выход"
