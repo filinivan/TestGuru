@@ -17,14 +17,15 @@ class BadgeService
   private
 
   def rule_first_time(*args)
-    TestPassage.where(["user_id = ? and test_id = ?", @user.id, @test.id]).length == 1
+    # TestPassage.where(["user_id = ? and test_id = ?", @user.id, @test.id]).length == 1
+    TestPassage.where(user: @user, test: @test, passed: true)
   end
 
 
   def rule_all_in_category(category)
-    if @test_passage.test.category.name == category
-      category_id = @test_passage.test.category.id
-      passed_tests_count = @user.tests.where(category: category_id).distinct
+    if @test.category.name == category
+      category_id = @test.category.id
+      passed_tests_count = @user.tests.where(category: category_id, passed: true).distinct
       Category.find_by(name: category).tests.count == passed_tests_count
     end
   end
