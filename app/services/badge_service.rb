@@ -4,39 +4,39 @@ class BadgeService
     @test = test_passage.test
     @test_passage = test_passage
     @tests = Test.all
+    @user_test_passages = TestPassage.where(user: @user, passed: true)
   end
 
   def call
     Badge.all.each do |badge|
       rule = badge.rule
       value = badge.value
-      give_reward!(badge) if send(rule, value)
+      give_reward(badge) if send(rule, value)
     end
   end
 
   private
 
   def rule_first_time(*args)
-    # TestPassage.where(["user_id = ? and test_id = ?", @user.id, @test.id]).length == 1
-    TestPassage.where(user: @user, test: @test, passed: true)
+    TestPassage.where(user: @user, test: @test, passed: true).length == 1
   end
 
 
   def rule_all_in_category(category)
-    if @test.category.name == category
-      category_id = @test.category.id
-      passed_tests_count = @user.tests.where(category: category_id, passed: true).distinct
-      Category.find_by(name: category).tests.count == passed_tests_count
-    end
+      return false if @test.category.name != category
+      all_tests_by_category = Test.by_category(category).order(id: :asc).pluck(:id)
+      user_passed = @user_test_passages.distinct.where(test_id: all_tests_by_category).order(test_id: :asc).pluck(:test_id)
+      all_tests_by_category == user_passed
   end
 
   def rule_all_in_level(level_number)
-    full_list = Test.where(level: level_number)
-    passed_list = @user.tests.where(level: level_number).distinct
-    full_list == passed_list
+    return false if @test.level != level_number.to_i
+    all_tests_by_level = Test.where(level: level_number).order(id: :asc).pluck(:id)
+    passed_list = @user_test_passages.distinct.where(test_id: all_tests_by_level).order(test_id: :asc).pluck(:test_id)
+    all_tests_by_level == passed_list
   end
 
-  def give_reward!(badge)
+  def give_reward(badge)
     @user.badges << badge
   end
 end
