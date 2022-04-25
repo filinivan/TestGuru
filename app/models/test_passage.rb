@@ -7,6 +7,8 @@ class TestPassage < ApplicationRecord
   before_update :before_update_set_next_question
   before_update :before_update_test_passed
 
+  scope :passed, -> { where(passed: true) }
+
   SUCCESS_PERCENT_NUMBER = 85
 
   def completed?
