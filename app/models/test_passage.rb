@@ -26,6 +26,10 @@ class TestPassage < ApplicationRecord
     success_percent >= SUCCESS_PERCENT_NUMBER
   end
 
+  def time_left?
+    self.updated_at + self.test.time < Time.now
+  end
+
   def success_percent
     self.correct_question.to_f / self.test.questions.count * 100.0
   end
