@@ -2,10 +2,10 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, 
+  devise :database_authenticatable,
          :registerable,
-         :recoverable, 
-         :rememberable, 
+         :recoverable,
+         :rememberable,
          :validatable,
          :confirmable
 
@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_many :test_passages
   has_many :tests, through: :test_passages
   has_many :gists
+  has_many :badge_users
+  has_many :badges, through: :badge_users
 
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, if: Proc.new { |u| u.encrypted_password.blank? }

@@ -1,0 +1,26 @@
+<%= form_with model: [:admin, @badge], local: true, class: "" do |form| %>
+
+  <p>
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title, class: "form-control"%>
+  </p>
+
+  <p>
+    <%= form.label :img, class: "form-label" %>
+    <%= form.select(:img, options_for_select([['Blue', 'badges/blue.jpg'], ['Red', 'badges/red.jpg'],
+        ['Black', 'badges/black.jpg']]), {}, { class: 'form-select' })%>
+  </p>
+
+  <p>
+    <%= form.label :rule, class: "form-label" %>
+    <%= form.select(:rule, options_for_select([['First time', 'rule_first_time'], ['All in category', 'rule_all_in_category'],
+        ['All in level', 'rule_all_in_level']]), {}, { class: 'form-select' })%>
+  </p>
+
+  <p>
+    <%= form.label :value, class: "form-label" %>
+    <%= form.text_field :value, class: "form-control"%>
+  </p>
+
+  <p> <%= form.submit("Сохранить", class: "btn btn-primary") %> </p>
+<% end %>

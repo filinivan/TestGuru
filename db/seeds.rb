@@ -33,5 +33,9 @@ answers = Answer.create!([
 
 ])
 
+badges = Badge.create!([
+  { title: 'Test Badge', img: 'badges/blue.jpg', rule: 'test', value: 'web' }
+
+])
 # passed_tests = TestPassage.create!(user_id: users[0].id, test_id: tests[0].id,
 #   created_at: '2020-12-14 05:43:25.762660', updated_at: '2020-12-14 05:43:25.762660')
