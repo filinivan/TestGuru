@@ -1,5 +1,9 @@
 ru:
 
+  badges:
+    index:
+      header: "Ваши бейджи"
+
   tests:
     index:
       welcome: "Привет "
@@ -32,6 +36,10 @@ ru:
         delete: "Удалить"
       form_inline:
         submit: "Ok"
+    badges:
+      index:
+        header: "Настройка бейджей"
+
 
 
   shared:
@@ -45,9 +53,11 @@ ru:
         few: "Обнаружено %{count} ошибки"
         many: "Обнаружено %{count} ошибки"
     nav:
+      your_badges: "Награды"
       gists: "Гистульки"
       adminka: "Админка"
       logout: "Выход"
+      badges: "Бейджи"
 
   tests_mailer:
     completed_test:

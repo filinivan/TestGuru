@@ -1,0 +1,16 @@
+<h1 class="text-center mt-3"><%= t('.header') %></h1>
+<p>
+<%= link_to t('.new_badge'), new_admin_badge_path, class: "btn btn-warning" %>
+</p>
+
+<table class='table table-striped'>
+    <tr>
+        <th><%=t('.title')%></th>
+        <th><%=t('.img')%></th>
+        <th><%=t('.rule')%></th>
+        <th colspan="3"><%=t('.actions')%></th>
+    </tr>
+
+    <%= render @badges %>
+
+</table>
