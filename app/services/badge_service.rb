@@ -3,8 +3,7 @@ class BadgeService
     @user = test_passage.user
     @test = test_passage.test
     @test_passage = test_passage
-    # @user_test_passages = TestPassage.where(user: @user, passed: true)
-    @user_test_passages = TestPassage.passed.where(user: @user)
+    @user_test_passages = @user.test_passages
   end
 
   def call
