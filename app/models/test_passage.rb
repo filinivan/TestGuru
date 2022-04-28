@@ -30,6 +30,10 @@ class TestPassage < ApplicationRecord
     self.updated_at + self.test.time < Time.now
   end
 
+  def time_end
+    @time_end = self.updated_at + self.test.time - Time.now
+  end
+
   def success_percent
     self.correct_question.to_f / self.test.questions.count * 100.0
   end

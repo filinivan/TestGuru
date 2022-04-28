@@ -5,6 +5,10 @@
 </p>
 <br>
 <br>
+<div id="timer">
+  <%= content_tag :div,"", id: "myTimer", data: { time: @test_passage.time_end } %>
+</div>
+<br>
 <div id="myProgress">
   <%= content_tag :div,"", id: "myBar", data: { percent: @test_passage.percent} %>
 </div>
