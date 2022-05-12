@@ -27,11 +27,12 @@ class TestPassage < ApplicationRecord
   end
 
   def time_left?
-    self.updated_at + self.test.time < Time.now
+    self.created_at + self.test.time < Time.now
   end
 
   def time_end
-    @time_end = self.updated_at + self.test.time - Time.now
+    # self.created_at + self.test.time - Time.now
+    Time.at(self.created_at + self.test.time - Time.now).strftime("%s")
   end
 
   def success_percent
