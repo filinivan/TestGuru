@@ -22,5 +22,10 @@
     <%= form.collection_select :category_id, Category.all, :id, :name, {}, {class: 'form-select'} %>
   </p>
 
+  <p>
+    <%= form.label :time, class: "form-label" %>
+    <%= form.number_field :time,  id: :test_time, class: "form-control" %>
+  </p>
+
   <p> <%= form.submit("Сохранить", class: "btn btn-primary") %> </p>
 <% end %>
